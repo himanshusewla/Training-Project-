@@ -1,0 +1,90 @@
+**Task 1: Object-Oriented Programming Basics** 
+**Objective: Practice object-oriented programming (OOP) concepts in C++.** 
+
+//creating a simple C++ class representing a "Book" entity, demonstrating basic OOP concepts. Here's an example code: 
+
+#include <iostream> 
+
+#include <string> 
+
+  
+
+class Book { 
+
+private: // Encapsulation 
+
+    std::string title; 
+
+    std::string author; 
+
+    int year; 
+
+  
+
+public: // Public access specifier 
+
+    // Constructor 
+
+    Book(std::string t, std::string a, int y) : title(t), author(a), year(y) {} 
+
+  
+
+    // Member functions 
+
+    std::string getTitle() { return title; } 
+
+    std::string getAuthor() { return author; } 
+
+    int getYear() { return year; } 
+
+  
+
+    void displayInfo() { 
+
+        std::cout << "Title: " << title << std::endl; 
+
+        std::cout << "Author: " << author << std::endl; 
+
+        std::cout << "Year: " << year << std::endl; 
+
+    } 
+
+}; 
+
+int main() { 
+
+    // Instantiating objects 
+
+    Book book1("The Story of My Life", "Hellen Keller", 1903); 
+
+    Book book2("Gulliver's Travels", "Jonathan swift", 1726); 
+
+  
+
+    // Interacting with objects 
+
+    book1.displayInfo(); 
+
+    std::cout << "Author of book2: " << book2.getAuthor() << std::endl; 
+
+     
+
+    return 0; 
+
+} 
+
+ 
+
+ 
+
+OUTPUT: - 
+
+ 
+
+Title: The Story of My Life 
+
+Author: Helen Keller 
+
+Year:  1903 
+
+Author of book2: Jonathan swift
