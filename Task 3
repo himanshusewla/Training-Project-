@@ -1,0 +1,156 @@
+** File I/O and Text Processing **
+** Objective: Perform file I/O and text processing tasks in C++. **
+
+#include <iostream> 
+
+#include <fstream> 
+
+#include <string> 
+
+#include <map> 
+
+  
+
+using namespace std; 
+
+  
+
+// Function to count words in a string 
+
+int countWords(const string& text) { 
+
+    int count = 0; 
+
+    size_t pos = 0; 
+
+    while ((pos = text.find(' ', pos)) != string::npos) { 
+
+        count++; 
+
+        pos++; 
+
+    } 
+
+    return count + 1; // Add 1 for the last word 
+
+} 
+
+  
+
+// Function to calculate character frequency 
+
+map<char, int> charFrequency(const string& text) { 
+
+    map<char, int> freq; 
+
+    for (char c : text) { 
+
+        if (freq.find(c) != freq.end()) { 
+
+            freq[c]++; 
+
+        } else { 
+
+            freq[c] = 1; 
+
+        } 
+
+    } 
+
+    return freq; 
+
+} 
+
+  
+
+int main() { 
+
+    string text = "This is a sample text file for testing. It contains some words and characters."; 
+
+    int wordCount = countWords(text); 
+
+    map<char, int> frequency = charFrequency(text); 
+
+  
+
+    ofstream outputFile("output.txt"); 
+
+    if (!outputFile) { 
+
+        cerr << "Error opening output file." << endl; 
+
+        return 1; 
+
+    } 
+
+    outputFile << "Word count: " << wordCount << endl; 
+
+    outputFile << "Character frequency:" << endl; 
+
+    for (auto& pair : frequency) { 
+
+        outputFile << pair.first << ": " << pair.second << endl; 
+
+    } 
+
+  
+
+    outputFile.close(); 
+
+    cout << "Processing complete. Results written to output.txt" << endl; 
+
+    return 0; 
+
+} 
+
+ 
+
+OUTPUT:_ 
+
+Word count: 14 
+
+Character frequency: 
+
+     : 13 
+
+.   : 2 
+
+I    : 1 
+
+T   : 1 
+
+a  : 6 
+
+c  : 3 
+
+d  : 2 
+
+e  : 6 
+
+f  : 2 
+
+g  : 1 
+
+h  : 2 
+
+i   : 5 
+
+l  : 2 
+
+m  : 2 
+
+n  : 4 
+
+o : 4 
+
+p  : 1 
+
+r  : 4 
+
+s  : 8 
+
+t  : 7 
+
+w  : 1 
+
+x  : 1
